@@ -72,14 +72,13 @@ const categoriaController = {
                 });
 
                 if (result.insertId > 0) {
-                    return res.status(201).json({ message: 'Categoria registrada com sucesso' });
+                    return res.status(201).json({ message: 'Categoria atualizada com sucesso' });
                 }
-                res.status(400).json({ message: 'Ocorreu um erro ao inserir o registro' });
-
-                // [""]
+                res.status(400).json({ message: 'Ocorreu um erro ao atualizar o registro' });
 
             })
     }
+    
     
 }
 

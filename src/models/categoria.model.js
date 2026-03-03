@@ -13,8 +13,8 @@ const categoriaModel = {
         return rows;
     },
     atualizar: async (pCategoria) => {
-        const sql = 'UPDATE categoria SET descricaoCategoria = ?, dataCad = ? WHERE pCategoria = ?;';
-        const values = [pCategoria.descricaoCategoria, pCategoria.dataCad];
+        const sql = 'UPDATE categoria SET descricaoCategoria = ? WHERE pCategoria = ?;';
+        const values = [pCategoria.descricaoCategoria];
         const [rows] = await pool.execute(sql, values);
         return rows;
     },

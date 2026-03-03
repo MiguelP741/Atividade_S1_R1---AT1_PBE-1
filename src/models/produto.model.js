@@ -11,6 +11,18 @@ const produtoModel = {
         const sql = "SELECT * FROM produto;";
         const [rows] = await pool.execute(sql);
         return rows;
+    },
+    atualizar: async (pProduto) => {
+        const sql = 'UPDATE produto SET nomeProduto = ?, valorProduto = ?, vinculoimagem = ? WHERE pProduto = ?;';
+        const values = [pProduto.nomeProduto, pProduto.valorProduto, pProduto.vinculoimagem];
+        const [rows] = await pool.execute(sql, values);
+        return rows;
+    },
+    deletar: async (pProduto) => {
+        const sql = 'DELETE FROM produto WHERE pProduto = ?';
+        const values = [pProduto]
+        const [rows] = await pool.execute(sql, values);
+        return rows
     }
 }
 
