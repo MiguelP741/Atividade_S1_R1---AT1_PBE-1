@@ -4,7 +4,9 @@ import { Router } from "express";
 const categoriaRoutes = Router();
 
 categoriaRoutes.post('/categoria', categoriaController.criarCategoria);
-categoriaRoutes.get('/categoria', categoriaController.buscarCategorias);
+categoriaRoutes.get('/categoria', categoriaController.selecionarTodasCategorias);
+categoriaRoutes.put('/categoria', categoriaController.atualizarCategoria);
+categoriaRoutes.delete('/categoria', categoriaController.deletarCategoria)
 
 export default categoriaRoutes;
 
