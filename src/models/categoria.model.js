@@ -1,17 +1,30 @@
-import pool from "../config/produto.db.js";
+import pool from "../config/loja.db.js";
 
 const categoriaModel = {
-    insert: async (pProduto) => {
+    inserir: async (pCategoria) => {
         const sql = 'INSERT INTO categoria (descricaoCategoria, dataCad) VALUES (?,?);'
-        const values = [pProduto.descricaoCategoria, pProduto.dataCad];
+        const values = [pCategoria.descricaoCategoria, pCategoria.dataCad];
         const [rows] = await pool.execute(sql, values);
         return rows;
     },
-    selectAll: async () => {
+    selecionarTodos: async () => {
         const sql = "SELECT * FROM categoria;";
         const [rows] = await pool.execute(sql);
         return rows;
+    },
+    atualizar: async (pCategoria) => {
+        const sql = 'UPDATE categoria SET descricaoCategoria = ?, dataCad = ? WHERE pCategoria = ?;';
+        const values = [pCategoria.descricaoCategoria, pCategoria.dataCad];
+        const [rows] = await pool.execute(sql, values);
+        return rows;
+    },
+    deletar: async (pCategoria) => {
+        const sql = 'DELETE FROM categoria WHERE pCategoria = ?';
+        const values = [pCategoria]
+        const [rows] = await pool.execute (sql, values);
+        return rows
     }
+
 }
 
 export default categoriaModel;

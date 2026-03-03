@@ -8,10 +8,3 @@ categoriaRoutes.get('/categoria', categoriaController.buscarCategorias);
 
 export default categoriaRoutes;
 
-
-
-
-
-// import imageController from "../controllers/imagem.controller.js";
-// const imagemRoutes = Router();
-// imagemRoutes.post('/produtos/imagens', uploadImage, imageController.upload);
